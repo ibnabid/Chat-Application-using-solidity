@@ -20,8 +20,8 @@ import { useRouter } from 'next/router';
 
     //Chat User Data( this shows me whom I am chatting with in this application)
 
-    const [currentuserName, setCurrentUserName] = useState("");
-    const [currentuserAddress, setCurrentUserAddress] = useState("");
+    const [currentUserName, setCurrentUserName] = useState("");
+    const [currentUserAddress, setCurrentUserAddress] = useState("");
     const router = useRouter();
 
 
@@ -83,7 +83,7 @@ import { useRouter } from 'next/router';
 
     //ADD YOUR FRIENDS
 
-    const addfriends = async({name, accountAddress})=>{
+    const addFriends = async({name, accountAddress})=>{
         try {
             if(name || accountAddress) 
             return setError("Please provide information")
@@ -121,12 +121,14 @@ import { useRouter } from 'next/router';
     const readUser= async(userAddress)=>{
         const contract = await connectingWithContract();
         const userName = await contract.getUsername(userAddress);
-
+        setCurrentUserName(userName);
+        setCurrentUserAddress(userAddress);
     };  
 
     return (
         
-        <ChatAppContext.Provider value={{readMessage, createAccount, addfriends, sendMessage}}>
+        <ChatAppContext.Provider value={{readMessage, createAccount, addFriends, sendMessage, readUser, account, userName, friendLists,
+        friendMsg, loading , userLists, error, currentUserName, currentUserAddress }}>
             {
                 {children}
             }
