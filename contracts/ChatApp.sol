@@ -23,13 +23,19 @@ contract ChatApp{
         string msg; 
     }
 
+    struct AllUserStruct{
+        string name;
+        address accountAddress;
+    }
+
+    AllUserStruct[] getAllUsers;
     mapping(address => user) userList;
     mapping(bytes32 => message[]) allMessages;
 
 
     //check user existance
     function checkUserExist( address pubkey) public view returns(bool){
-        return bytes(userList[pubkey].name).length>0;
+        return bytes(userList[pubkey].name).length>0;  
     }
 
     //create account
@@ -38,6 +44,8 @@ contract ChatApp{
         require(bytes(name).length>0, "Name can't be empty");
 
         userList[msg.sender].name = name;
+
+        getAllUsers.push(AllUserStruct(name, msg.sender));
     }
 
     //Get USERNAME
@@ -98,6 +106,8 @@ contract ChatApp{
         else return keccak256(abi.encodePacked(pubkey2, pubkey1));  
     }
 
+
+    //Send message
     function sendMessage(address friend_key, string calldata _msg) external{
         require(checkUserExist(msg.sender), "Create an account first" );
         require(checkUserExist(friend_key),"User is not registered");
@@ -106,8 +116,19 @@ contract ChatApp{
         bytes32 chatcode = _getChatCode(msg.sender, friend_key );
 
         message memory newMsg = message(msg.sender, block.timestamp, _msg);
-        allMessages
+        allMessages[chatcode].push(newMsg);
     }
- 
+    
+    //Read message
+    function readMessage(address friend_key) external view returns(message[] memory) {
+        bytes32 chatcode = _getChatCode(msg.sender, friend_key);
+        return  allMessages[chatcode];
+    }
 
+//this functon allow us to fetch all the users who got registered 
+//into our application
+
+    function getAllAppUser() public view returns(AllUserStruct[] memory){
+    return getAllUsers;
+    }
 }
