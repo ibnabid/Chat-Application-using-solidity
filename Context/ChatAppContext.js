@@ -34,7 +34,7 @@ import { useRouter } from 'next/router';
             //Get Contract
             const connectAccount = await connectWallet(); 
             setAccount(connectAccount);
-            //GET USER NAME
+            //GET USER NAME 
             const userName= await contract.getUsername(connectAccount);
             setUserName(userName);
             //GET MY FRIEND LIST
@@ -127,7 +127,7 @@ import { useRouter } from 'next/router';
 
     return (
         
-        <ChatAppContext.Provider value={{readMessage, createAccount, addFriends, sendMessage, readUser, account, userName, friendLists,
+        <ChatAppContext.Provider value={{readMessage, createAccount, addFriends, sendMessage, readUser, connectWallet, CheckIfWalletConnected,account, userName, friendLists,
         friendMsg, loading , userLists, error, currentUserName, currentUserAddress }}>
             {
                 {children}

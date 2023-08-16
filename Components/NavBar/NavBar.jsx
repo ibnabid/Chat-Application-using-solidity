@@ -20,26 +20,44 @@ const NavBar = () => {
       link: "alluser",
     },
     {
-      menu: "All Users",
-      link: "alluser",
+      menu: "CHAT",
+      link: "/",
     },
     {
-      menu: "All Users",
-      link: "alluser",
+      menu: "SETTING",
+      link: "/",
     },
     {
-      menu: "All Users",
-      link: "alluser",
+      menu: "FAQS",
+      link: "/",
     },
     {
-      menu: "All Users",
-      link: "alluser",
+      menu: "TERMS OF USE",
+      link: "/",
     },
   ] 
+
+
+  //USESTATE
+  const [active, setActive] = useState(2);
+  const [open, setOpen] = useState(false);
+  const [openModel, setOpenModel] = useState(false);
+  const {account, userName, connectWallet}= useContext(ChatAppContext);
   return (
     <div className={Style.NavBar}>
       <div className={Style.NavBar_box}>
-
+          <div className={Style.NavBar_box_left}>
+            <image src={images.logo} alt="Logo" width={50} height={50} />
+          </div>
+          <div className={Style.NavBar_box_right}>
+            <div className={Style.NavBar_box_right_menu}>
+              {menuItems.map((el, i)=>(
+                <div onClick={()=> setActive(i+1)} key={i+1} className={`${
+                  Style.NavBar_box_right_menu} ${active == i+1 ?
+                  Style.active: }`}></div>
+              ))}
+            </div>
+          </div>
       </div>
     </div>
   )
