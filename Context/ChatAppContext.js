@@ -129,9 +129,7 @@ import { useRouter } from 'next/router';
         
         <ChatAppContext.Provider value={{readMessage, createAccount, addFriends, sendMessage, readUser, connectWallet, CheckIfWalletConnected,account, userName, friendLists,
         friendMsg, loading , userLists, error, currentUserName, currentUserAddress }}>
-            {
                 {children}
-            }
         </ChatAppContext.Provider>
     );
  };
