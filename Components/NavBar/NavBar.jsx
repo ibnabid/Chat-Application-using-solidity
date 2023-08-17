@@ -57,7 +57,8 @@ const NavBar = () => {
                 onClick={()=> setActive(i+1)} 
                 key={i+1} 
                 className={`${Style.NavBar_box_right_menu_items} ${
-                  active == i+1 ? Style.active_btn: "" 
+                  active == i+1 ? Style.active_btn: 
+                  "" 
                   }`}
                   >
                     <Link className={Style.NavBar_box_right_menu_items_link}
@@ -70,14 +71,15 @@ const NavBar = () => {
 
 
             {/*//Mobile */}
-            {!open && (
+            {open && (
               <div className={Style.mobile_menu}>
               {menuItems.map((el, i)=>(
                 <div 
                 onClick={()=> setActive(i+1)} 
                 key={i+1} 
                 className={`${Style.mobile_menu_items} ${
-                  active == i+1 ? Style.active_btn: "" 
+                  active == i+1 ? Style.active_btn: 
+                  "" 
                   }`}
                   >
                     <Link className={Style.mobile_menu_items_link}
@@ -124,6 +126,18 @@ const NavBar = () => {
             </div>
           </div>
       </div>
+
+
+      {/* MODEL COMPONENT */}
+      {openModel && (
+          <div className={Style.modelBox}>
+            <Model openModel={setOpenModel}
+              title="WELCOME TO"
+              head="CHAT" 
+              info='Ab id jifinf jiievbdbdb bvbfvbfhvbidfv idvidfvidfv dfiddvifvif ividfvifv idvidfvif'
+            />
+          </div>
+      )}
     </div>
   );
   
