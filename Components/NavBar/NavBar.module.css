@@ -100,9 +100,14 @@
     .mobile_menu{
         display: block;
         position: fixed;
-        z-index: 111111;
+        z-index: 1111111; 
         background-color: #292F3F;
         inset: 0 0 0 0;
         padding-top: 4rem;
+    }
+
+    .mobile_menu_btn{
+        padding-top: 2rem;
+        
     }
 }
