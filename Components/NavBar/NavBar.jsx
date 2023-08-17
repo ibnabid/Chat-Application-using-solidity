@@ -136,7 +136,7 @@ const NavBar = () => {
               head="CHAT" 
               info="Ab id jifinf jiievbdbdb bvbfvbfhvbidfv idvidfvidfv dfiddvifvif ividfvifv idvidfvif"
               smallInfo="Kindly select your name..."
-              images={images.hero}
+              image={images.hero}
               functionName={createAccount}
             />
           </div>
