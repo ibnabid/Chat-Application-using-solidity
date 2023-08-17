@@ -127,8 +127,22 @@ import { useRouter } from 'next/router';
 
     return (
         
-        <ChatAppContext.Provider value={{readMessage, createAccount, addFriends, sendMessage, readUser, connectWallet, CheckIfWalletConnected,account, userName, friendLists,
-        friendMsg, loading , userLists, error, currentUserName, currentUserAddress }}>
+        <ChatAppContext.Provider value={{readMessage,
+        createAccount, 
+        addFriends, 
+        sendMessage, 
+        readUser, 
+        connectWallet, 
+        CheckIfWalletConnected,
+        account, 
+        userName, 
+        friendLists,
+        friendMsg,
+        loading, 
+        userLists, 
+        error, 
+        currentUserName, 
+        currentUserAddress }}>
                 {children}
         </ChatAppContext.Provider>
     );

@@ -65,6 +65,14 @@
     display: none;
 }
 
+
+.modelBox{
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: #292F3F;
+    z-index: 77777777;
+
+}
 @media only screen and (max-width: 35em) {
     .NavBar{
         width: 90%;
@@ -87,7 +95,7 @@
 
     .NavBar_box_right_menu {
         position: fixed;
-        z-index: 111111;
+        z-index: 11111111;
         background-color: #292F3F;
         width: 100%;
         flex-direction: column;
@@ -100,7 +108,7 @@
     .mobile_menu{
         display: block;
         position: fixed;
-        z-index: 111111; 
+        z-index: 11111111; 
         background-color: #292F3F;
         inset: 0 0 0 0;
         padding-top: 4rem;
@@ -114,5 +122,10 @@
     .mobile_menu_btn{
         padding-top: 2rem;
 
+    }
+
+    .modelBox{
+        position: absolute;
+        inset: 0 0 -70% 0%;
     }
 }
