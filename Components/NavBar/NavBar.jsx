@@ -129,7 +129,7 @@ const NavBar = () => {
 
 
       {/* MODEL COMPONENT */}
-      {!openModel && (
+      {openModel && (
           <div className={Style.modelBox}>
             <Model 
               openBox={setOpenModel}
@@ -143,7 +143,7 @@ const NavBar = () => {
             />
           </div>
       )}
-      {error == "" ? "" :<Error error={error}/>}
+      {/* {error == " " ? " " :<Error error={error}/>} */}
     </div>
   );
   
