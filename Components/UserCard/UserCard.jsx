@@ -6,6 +6,7 @@ import Style from './UserCard.module.css';
 import images from '../../assets';
 
 const UserCard = ({el, i, addFriends}) => {
+  console.log(el);
   return (
       <div className={Style.UserCard}>
         <div className={Style.UserCard_box}>
@@ -15,8 +16,9 @@ const UserCard = ({el, i, addFriends}) => {
             height={100}
           />
 
-          <div className={Style.UserCard_box_info}>
-
+          <div className={Style.UserCard_box_info}> 
+              <h3>{el.name}</h3>
+              <p>{el.accountAddress}</p>
           </div>
         </div>
       </div>
