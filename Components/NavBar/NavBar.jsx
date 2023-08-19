@@ -143,7 +143,7 @@ const NavBar = () => {
             />
           </div>
       )}
-      {/* {error == " " ? " " :<Error error={error}/>} */}
+      {error == "" ? "" :<Error error={error}/>}
     </div>
   );
   

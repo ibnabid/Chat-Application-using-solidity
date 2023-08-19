@@ -95,7 +95,7 @@
 
     .NavBar_box_right_menu {
         position: fixed;
-        z-index: 11111111;
+        z-index: 1111111;
         background-color: #292F3F;
         width: 100%;
         flex-direction: column;
