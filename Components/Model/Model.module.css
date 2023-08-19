@@ -1,0 +1,41 @@
+.Model{
+    width: 85%;
+    margin: 1rem auto;
+}
+
+.Model_Box{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    align-items: center;
+
+}
+
+.Model_Box_right h1{
+    font-size: 3rem;
+    color: #f18303;
+    line-height: .9;
+}
+
+.Model_Box_right h1 span{
+    display: block;
+    font-size: 5rem;
+
+}
+
+.Model_Box_right small{
+    font-size: 1.2rem;
+    color: #f18303;
+}
+
+.Model_Box_right_name_info{
+    
+}
+@media only screen and (max-width: 35em){
+    .Model{
+        width: 90%;
+
+    }
+    .Model_Box{
+        grid-template-columns: 1fr;
+    }
+}
