@@ -44,6 +44,7 @@ import { useRouter } from 'next/router';
             const userLists = await contract.getAllAppUser();
             setuserLists(userLists);
         } catch (error) {
+            console.log(error);
             setError("Please install and connect your wallet");
         }
     };
@@ -77,6 +78,7 @@ import { useRouter } from 'next/router';
 
 
         } catch (error) {
+            console.error(error);
             setError("Error while creating your account, Please reload the browser");
         }
     }
@@ -85,8 +87,8 @@ import { useRouter } from 'next/router';
 
     const addFriends = async({name, accountAddress})=>{
         try {
-            if(name || accountAddress) 
-            return setError("Please provide information")
+            // if(name || accountAddress) 
+            // return setError("Please provide information")
             const contract = await connectingWithContract();
             const addMyFriend = await contract.addFriend(accountAddress, name);
             setLoading(true);
