@@ -8,7 +8,7 @@ const ChatApp = () => {
 
   //const {} = useContext(ChatAppContext);
   return <div>
-    <NavBar></NavBar>
+    
     <Filter />
     <Friend/>
     
