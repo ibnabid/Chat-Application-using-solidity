@@ -44,9 +44,11 @@ import { useRouter } from 'next/router';
             const userLists = await contract.getAllAppUser();
             setuserLists(userLists);
         } catch (error) {
+        
+            //setError("Please install and connect your wallet");
             console.log(error);
-            setError("Please install and connect your wallet");
         }
+
     };
 
     useEffect(() => {
@@ -60,7 +62,7 @@ import { useRouter } from 'next/router';
             const read = await contract.readMessage(friendAdress);
             setFriendMsg(read);
         } catch (error) {
-            error("Currently you have no message")
+            console.log("Currently you have no message")
         }
     }
 

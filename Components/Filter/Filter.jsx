@@ -21,6 +21,7 @@ const Filter = () => {
             <input type="text" placeholder="search..." />
           </div>
         </div>
+        
         <div className={Style.Filter_box_right}>
           <button>
             <Image src={images.clear} alt="clear" width={20} height={20} />
@@ -30,8 +31,9 @@ const Filter = () => {
             <Image src={images.user} alt="clear" width={20} height={20} />
             ADD FRIEND
           </button>
+          </div>
         </div>
-      </div>
+      
 
       {/* //Model Component */}
       {addFriend && (
@@ -40,7 +42,7 @@ const Filter = () => {
             openBox={setAddFriend}
             title="WELCOME TO"
             head="CHAT"
-            info="A common form of Lorem ipsum reads: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            info="m ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             smallInfo="Kindly Select your friend name & address.."
             image={images.hero}
             functionName={addFriends}
