@@ -38,11 +38,11 @@ import { useRouter } from 'next/router';
             const userName= await contract.getUsername(connectAccount);
             setUserName(userName);
             //GET MY FRIEND LIST
-            const friendLists = await contract.getMyFriendList(connectAccount);
+            const friendLists = await contract.getMyFriendList();
             setFriendLists(friendLists);
             //GET ALL APP USER LIST
-            const userLists = await contract.getAllAppUser();
-            setuserLists(userLists);
+            const userList = await contract.getAllAppUser();
+            setuserLists(userList);
         } catch (error) {
         
             //setError("Please install and connect your wallet");
@@ -62,9 +62,9 @@ import { useRouter } from 'next/router';
             const read = await contract.readMessage(friendAdress);
             setFriendMsg(read);
         } catch (error) {
-            console.log("Currently you have no message")
+            setError("Currently you have no message");
         }
-    }
+    };
 
     //Create Account
     const createAccount = async({name, accountAddress}) => {
@@ -107,8 +107,8 @@ import { useRouter } from 'next/router';
     //SEND MESSAGE TO YOUR FRIEND
     const sendMessage = async({msg, address})=>{
         try {
-            if(msg || address) 
-            return setError("Please Type your Message");
+            //if(msg || address) 
+            //return setError("Please Type your Message");
 
             const contract = await connectingWithContract();
             const addMessage = await contract.sendMessage(address, msg);
@@ -132,7 +132,7 @@ import { useRouter } from 'next/router';
     return (
         
         <ChatAppContext.Provider value={{
-            readMessage,
+        readMessage,
         createAccount, 
         addFriends, 
         sendMessage, 
