@@ -80,7 +80,7 @@ const Model = ({
           }
 
 
-        
+
       </div>
     </div>
   </div>

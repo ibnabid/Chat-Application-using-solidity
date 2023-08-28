@@ -7,13 +7,12 @@ import { Filter, Friend } from "../Components/index";
 const ChatApp = () => {
 
   const {} = useContext(ChatAppContext);
-  return <div>
-    
-    <Filter />
+  return (<div>
+    <Filter/>
     <Friend/>
     
   </div>
-   
+  ); 
 };
 
 export default ChatApp;
