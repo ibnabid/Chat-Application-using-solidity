@@ -61,6 +61,7 @@
     display: none;
 }
 
+
 .mobile_menu{
     display: none;
 }
@@ -95,7 +96,7 @@
 
     .NavBar_box_right_menu {
         position: fixed;
-        z-index: 1111111;
+        z-index: 111111;
         background-color: #292F3F;
         width: 100%;
         flex-direction: column;
@@ -108,9 +109,10 @@
     .mobile_menu{
         display: block;
         position: fixed;
-        z-index: 11111111; 
+        z-index: 1111111; 
         background-color: #292F3F;
         inset: 0 0 0 0;
+        text-align: center;
         padding-top: 4rem;
     }
 

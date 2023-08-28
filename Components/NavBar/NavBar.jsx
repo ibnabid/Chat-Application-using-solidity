@@ -134,8 +134,8 @@ const NavBar = () => {
             <Model 
               openBox={setOpenModel}
               title="WELCOME TO"
-              head="CHAT" 
-              info="Ab id jifinf jiievbdbdb bvbfvbfhvbidfv idvidfvidfv dfiddvifvif ividfvifv idvidfvif"
+              head="BlockChain CHAT" 
+              info="This is Ethereum Blockchain based Chat Application.It is built using Solidity, Web3 and React framework"
               smallInfo="Kindly select your name..."
               image={images.hero}
               functionName={createAccount}
