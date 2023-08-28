@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
 
  //internal imports
@@ -144,7 +144,7 @@ import { useRouter } from 'next/router';
         friendLists,
         friendMsg,
         loading, 
-        userLists, 
+        userLists,  
         error, 
         currentUserName, 
         currentUserAddress }}>

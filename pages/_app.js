@@ -8,7 +8,7 @@ const MyApp = ({ Component, pageProps }) =>(
   <div>
   <ChatAppProvider>
       <NavBar/>
-    <Component {...pageProps} />
+      <Component {...pageProps} />
     
   </ChatAppProvider>
   </div>
