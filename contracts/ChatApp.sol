@@ -34,13 +34,13 @@ contract ChatApp{
 
 
     //check user existance
-    function checkUserExist( address pubkey) public view returns(bool){
+    function checkUserExists( address pubkey) public view returns(bool){
         return bytes(userList[pubkey].name).length>0;  
     }
 
     //create account
     function createAccount(string calldata name) external {
-        require(checkUserExist(msg.sender)==false, "User aready exsit");
+        require(checkUserExists(msg.sender)==false, "User aready exsit");
         require(bytes(name).length>0, "Name can't be empty");
 
         userList[msg.sender].name = name;
@@ -51,15 +51,15 @@ contract ChatApp{
     //Get USERNAME
 
     function getUsername(address pubkey) external view returns(string memory){
-        require(checkUserExist(pubkey), "User not registered");
+        require(checkUserExists(pubkey), "User not registered");
         return userList[pubkey].name;
     }
 
     //Add friend
 
     function addFriend(address friend_key, string calldata name) external {
-        require(checkUserExist(msg.sender), "Create an account first");
-        require(checkUserExist(friend_key), "User is not registered");
+        require(checkUserExists(msg.sender), "Create an account first");
+        require(checkUserExists(friend_key), "User is not registered");
         require(msg.sender != friend_key, "User Can't add themselves as friends");
         require(checkAlreadyFriends(msg.sender, friend_key)==false, "These users are already friend");
 
@@ -71,13 +71,13 @@ contract ChatApp{
 
     //Check Already Friends
     function checkAlreadyFriends(address pubkey1, address pubkey2) internal view returns(bool){
-        if(userList[pubkey1].friendList.length == userList[pubkey2].friendList.length){
+        if(userList[pubkey1].friendList.length > userList[pubkey2].friendList.length){
             address temp= pubkey1;
             pubkey1= pubkey2;
             pubkey2= temp;
         }
 
-        for(uint i=0; i<userList[pubkey1].friendList.length; i++){
+        for(uint256 i=0; i < userList[pubkey1].friendList.length; i++){
             if(userList[pubkey1].friendList[i].pubkey == pubkey2) 
                 return true;
         }
@@ -109,20 +109,20 @@ contract ChatApp{
 
     //Send message
     function sendMessage(address friend_key, string calldata _msg) external{
-        require(checkUserExist(msg.sender), "Create an account first" );
-        require(checkUserExist(friend_key),"User is not registered");
+        require(checkUserExists(msg.sender), "Create an account first" );
+        require(checkUserExists(friend_key),"User is not registered");
         require(checkAlreadyFriends(msg.sender, friend_key),"You are not friend with the given user ");
 
-        bytes32 chatcode = _getChatCode(msg.sender, friend_key );
+        bytes32 chatCode = _getChatCode(msg.sender, friend_key );
 
         message memory newMsg = message(msg.sender, block.timestamp, _msg);
-        allMessages[chatcode].push(newMsg);
+        allMessages[chatCode].push(newMsg);
     }
     
     //Read message
     function readMessage(address friend_key) external view returns(message[] memory) {
-        bytes32 chatcode = _getChatCode(msg.sender, friend_key);
-        return  allMessages[chatcode];
+        bytes32 chatCode = _getChatCode(msg.sender, friend_key);
+        return  allMessages[chatCode];
     }
 
 //this functon allow us to fetch all the users who got registered 
